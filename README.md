@@ -11,7 +11,6 @@ Author : [@GuckTubeYT](https://github.com/GuckTubeYT)
 ```markdown
 # Features
 
-![Project Logo](https://example.com/logo.png)
 
 
 ## New Features
