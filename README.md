@@ -9,9 +9,6 @@ Author : [@GuckTubeYT](https://github.com/GuckTubeYT)
 
 
 ```markdown
-# Features
-
-
 
 ## New Features
 - Custom item Tile Maker (X Y)
