@@ -141,25 +141,24 @@
         <!-- /.sidebar -->
       </aside>
 
-<!-- Add the audio element -->
-
-      <audio id="hover-sound" src="sounds/hover.mp3" preload="auto"></audio>
-
-      <!-- Add the script to handle the hover sound -->
-      <script>
-        document.addEventListener('DOMContentLoaded', function () {
-          const hoverSound = document.getElementById('hover-sound');
-          const menuItems = document.querySelectorAll('.nav-item a');
       
-          menuItems.forEach(item => {
-            item.addEventListener('mouseenter', () => {
-              hoverSound.currentTime = 0; // Rewind to the start
-              hoverSound.play();
-            });
-          });
-        });
-      </script>
+<audio id="menuSound" src="sounds/hover.mp3" preload="auto"></audio>
 
+
+ <script>
+  document.addEventListener('DOMContentLoaded', (event) => {
+    const menuItems = document.querySelectorAll('.nav-item a');
+    const menuSound = document.getElementById('menuSound');
+
+    menuItems.forEach(item => {
+      item.addEventListener('click', () => {
+        menuSound.play();
+      });
+    });
+  });
+</script>
+</body>
+</html>
 
       <!-- Content Wrapper. Contains page content -->
       <div class="content-wrapper">
