@@ -5,13 +5,12 @@ document.getElementById('hostCheckForm').addEventListener('submit', function(eve
     var resultDiv = document.getElementById('hostCheckResult');
     resultDiv.innerHTML = 'Checking...';
 
-    var xhr = new XMLHttpRequest();
-    xhr.open('POST', 'check_host.php', true);
-    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-    xhr.onreadystatechange = function() {
-        if (xhr.readyState === 4 && xhr.status === 200) {
-            resultDiv.innerHTML = xhr.responseText;
-        }
-    };
-    xhr.send('host=' + encodeURIComponent(host));
+    fetch('https://check-host.net/check-tcp?host=' + encodeURIComponent(host))
+        .then(response => response.text())
+        .then(data => {
+            resultDiv.innerHTML = data;
+        })
+        .catch(error => {
+            resultDiv.innerHTML = 'Error: ' + error.message;
+        });
 });
