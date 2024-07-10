@@ -127,6 +127,15 @@
                   </p>
               </a>
           </li>
+          <li class="nav-item">
+            <a href="crop.html" class="nav-link">
+                <i class="nav-icon fas fa-th"></i>
+                <p>
+                    Image Crop
+                    <span class="right badge badge-danger">New</span>
+                </p>
+            </a>
+        </li>
             </ul>
           </li>
         </ul>
@@ -135,7 +144,21 @@
     </div>
     <!-- /.sidebar -->
   </aside>
+  <audio id="menuSound" src="sounds/hover.mp3" preload="auto"></audio>
 
+
+  <script>
+   document.addEventListener('DOMContentLoaded', (event) => {
+     const menuItems = document.querySelectorAll('.nav-item a');
+     const menuSound = document.getElementById('menuSound');
+ 
+     menuItems.forEach(item => {
+       item.addEventListener('click', () => {
+         menuSound.play();
+       });
+     });
+   });
+ </script>
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->

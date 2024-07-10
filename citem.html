@@ -135,6 +135,15 @@
                         </p>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="crop.html" class="nav-link">
+                        <i class="nav-icon fas fa-th"></i>
+                        <p>
+                            Image Crop
+                            <span class="right badge badge-danger">New</span>
+                        </p>
+                    </a>
+                </li>
                 </ul>
               </li>
             </ul>
@@ -143,7 +152,21 @@
         </div>
         <!-- /.sidebar -->
       </aside>
+      <audio id="menuSound" src="sounds/hover.mp3" preload="auto"></audio>
 
+
+      <script>
+       document.addEventListener('DOMContentLoaded', (event) => {
+         const menuItems = document.querySelectorAll('.nav-item a');
+         const menuSound = document.getElementById('menuSound');
+     
+         menuItems.forEach(item => {
+           item.addEventListener('click', () => {
+             menuSound.play();
+           });
+         });
+       });
+     </script>
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
             <!-- Content Header (Page header) -->
@@ -159,14 +182,19 @@
             <!-- /.content-header -->
 
             <!-- Main content -->
-            <section class="content">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-md-3">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h3 class="card-title">Item Placement</h3>
-                                </div>
+            <div class="content">
+              <div class="container-fluid">
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="card card-primary">
+                      <div class="card-header">
+                        <h3 class="card-title">POSITION</h3>
+                      </div>
+                      <!-- /.card-header -->
+                      <!-- form start -->
+                      <div class="card-body">
+                        <div class="row">
+                          <div class="col-md-12">
                                     <div class="form-group">
                                         <label for="x-coord">X:</label>
                                         <input type="number" id="x-coord" name="x-coord" class="form-control" min="0" max="9">

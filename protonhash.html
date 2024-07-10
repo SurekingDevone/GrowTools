@@ -147,7 +147,21 @@
         </div>
         <!-- /.sidebar -->
       </aside>
+      <audio id="menuSound" src="sounds/hover.mp3" preload="auto"></audio>
 
+
+      <script>
+       document.addEventListener('DOMContentLoaded', (event) => {
+         const menuItems = document.querySelectorAll('.nav-item a');
+         const menuSound = document.getElementById('menuSound');
+     
+         menuItems.forEach(item => {
+           item.addEventListener('click', () => {
+             menuSound.play();
+           });
+         });
+       });
+     </script>
       <!-- Content Wrapper. Contains page content -->
       <div class="content-wrapper">
         <!-- Content Header (Page header) -->

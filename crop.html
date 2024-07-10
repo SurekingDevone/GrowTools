@@ -3,13 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Custom Item Tile Maker</title>
+    <title>Image Crop</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
     <!-- iCheck for checkboxes and radio inputs -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.js"></script>
     <link rel="stylesheet" href="plugins/bootstrap-toggle/bootstrap-toggle.min.css">
     <!-- DataTables -->
     <link rel="stylesheet" href="plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
@@ -27,7 +29,6 @@
     <link rel="stylesheet" href="dist/css/mycss.css">
     <!-- Custom styles -->
     <link rel="stylesheet" href="dist/css/styles.css">
-    <link rel="stylesheet" href="dist/css/styleresizer.css">
 </head>
 <body class="dark-mode hold-transition sidebar-mini layout-fixed layout-footer-fixed sidebar-collapse">
     <div class="wrapper">
@@ -42,7 +43,9 @@
             </li>
           </ul>
         </nav>
+        
         <!-- /.navbar -->
+
 <!--Start of Tawk.to Script-->
 <script type="text/javascript">
   var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
@@ -56,6 +59,7 @@
   })();
   </script>
   <!--End of Tawk.to Script-->
+        
        <!-- Main Sidebar Container -->
        <aside class="main-sidebar sidebar-dark-primary elevation-4">
         <!-- Brand Logo -->
@@ -116,7 +120,7 @@
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a href="citem.html" class="nav-link">
+                    <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-th"></i>
                         <p>
                             C-Item Tile Maker
@@ -125,7 +129,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="resizer.html" class="nav-link active">
+                    <a href="resizer.html" class="nav-link">
                         <i class="nav-icon fas fa-th"></i>
                         <p>
                             Image Resizer
@@ -134,14 +138,14 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                  <a href="crop.html" class="nav-link">
-                      <i class="nav-icon fas fa-th"></i>
-                      <p>
-                          Image Crop
-                          <span class="right badge badge-danger">New</span>
-                      </p>
-                  </a>
-              </li>
+                    <a href="crop.html" class="nav-link active">
+                        <i class="nav-icon fas fa-th"></i>
+                        <p>
+                            Image Crop
+                            <span class="right badge badge-danger">New</span>
+                        </p>
+                    </a>
+                </li>
                 </ul>
               </li>
             </ul>
@@ -172,7 +176,7 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0">Image Resizer</h1>
+                            <h1 class="m-0">Image Crop</h1>
                         </div><!-- /.col -->
                     </div><!-- /.row -->
                 </div><!-- /.container-fluid -->
@@ -185,38 +189,33 @@
                 <div class="row">
                   <div class="col-md-12">
                     <div class="card card-primary">
-                      <div class="card-header">
-                        
-                        <!-- <h2 class="card-title">Image Resizer</h2> -->
-                      </div>
-                      <!-- /.card-header -->
-                      <!-- form start -->
-                      <div class="card-body">
-                        <div class="row">
-                          <div class="col-md-12">
-                                    <div class="form-group">
-                                        <label for="width" class="form-label">Width:</label>
-                                        <input type="number" id="width" class="form-control" placeholder="Width">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="height" class="form-label">Height:</label>
-                                        <input type="number" id="height" class="form-control" placeholder="Height">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="upload" class="form-label">Upload Image:</label>
-                                        <input type="file" id="upload" class="form-control-file" accept="image/*" style="display: none;">
-                                        <button type="button" class="btn btn-primary" onclick="document.getElementById('upload').click();">Choose File</button>
-                                    </div>
-                                    
-                                    <div class="form-group">
-                                        <button id="resize-button" class="btn btn-primary">Resize Image</button>
-                                        <canvas id="canvas" class="mt-3"></canvas>
-                                        <a id="download" class="btn btn-success mt-3" download="resized-image.png">Download Resized Image</a>
-                                        <!--<button type="button" class="btn btn-rainbow" onclick="downloadGrid()">Download here</button> -->
-                                    </div>
+                        <div class="card-header">
+                          <h3 class="card-title">Image Crop Flexible</h3>
+                        </div>
+                        <!-- /.card-header -->
+                        <!-- form start -->
+                        <div class="card-body">
+                          <div class="row">
+                            <div class="col-md-12">
+                              <div class="form-group">
+                                <label for="crop-image-upload">Upload Image to Crop:</label>
+                                <input type="file" id="crop-image-upload" name="crop-image-upload" class="form-control-file" accept="image/png, image/jpeg" style="display: none;">
+                                <button type="button" class="btn btn-primary" onclick="document.getElementById('crop-image-upload').click();">Choose File</button>
+                              </div>
+                              <div class="form-group">
+                                <label for="crop-area">Crop Area:</label>
+                                <div id="crop-area" style="border: 1px solid #ccc; width: 100%; height: 400px; position: relative;">
+                                  <!-- Cropper.js will inject the cropping area here -->
                                 </div>
+                              </div>
+                              <div class="form-group">
+                                <button type="button" class="btn btn-primary" onclick="cropImage()">Crop Image</button>
+                              </div>
                             </div>
-                       
+                          </div>
+                        </div>
+                        <!-- /.card-body -->
+                      </div>
             </section>
             <!-- /.content -->
         </div>
@@ -233,7 +232,7 @@
     <!-- ./wrapper -->
 
     <!-- JavaScript -->
-    <script src="dist/js/resizer.js "></script>
+    <script src="dist/js/crop.js"></script>
     <!-- jQuery -->
     <script src="plugins/jquery/jquery.min.js"></script>
     <!-- Bootstrap 4 -->
