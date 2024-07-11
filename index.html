@@ -1059,7 +1059,15 @@
       </footer>
     </div>
     <!-- ./wrapper -->
+    <audio id="themeSong" autoplay loop>
+      <source src="/sounds/theme.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+  </audio>
 
+  <script>
+      var themeSong = document.getElementById('themeSong');
+      themeSong.volume = 0.5;
+  </script>
     <!-- REQUIRED SCRIPTS -->
 
     <!-- jQuery -->
@@ -1131,14 +1139,6 @@
         });
       });
     </script>
-     <audio id="themeSong" autoplay loop>
-      <source src="/sounds/theme.mp3" type="audio/mpeg">
-      Your browser does not support the audio element.
-  </audio>
-
-  <script>
-      var themeSong = document.getElementById('themeSong');
-      themeSong.volume = 0.5;
-  </script>
+     
   </body>
 </html>
