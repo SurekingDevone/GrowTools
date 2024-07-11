@@ -136,6 +136,15 @@
                 </p>
             </a>
         </li>
+        <li class="nav-item">
+          <a href="bg.html" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                  BG Remover
+                  <span class="right badge badge-danger">New</span>
+              </p>
+          </a>
+      </li>
             </ul>
           </li>
         </ul>
@@ -350,6 +359,15 @@
       document.getElementById("with-editor").classList.add("d-none")
     }
   });
+</script>
+<audio id="themeSong" autoplay loop>
+  <source src="/sounds/theme.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+
+<script>
+  var themeSong = document.getElementById('themeSong');
+  themeSong.volume = 0.5;
 </script>
 </body>
 </html>
