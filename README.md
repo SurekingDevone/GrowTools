@@ -2,18 +2,18 @@
 Growtools Remake / Added Some New Features
 
 
-==============================================================================
+
 ```markdown
 
-## New Features
-- Custom item Tile Maker (X Y)
-- Image Resizer
-- Image Crop Flexible
-- Background Remover smart AI
-- Some audio things
-- Small Re-styling
+## New Features v.1.2
+- Custom item Tile Maker (X Y) 🆕
+- Image Resizer 🆕 
+- Image Crop Flexible 🆕
+- Background Remover smart AI 🆕
+- Some audio things 🆕
+- Small Re-styling 🆕
 ```
-==============================================================================
+
 
 
 ==============================================================================
