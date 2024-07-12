@@ -1060,28 +1060,7 @@
     </div>
     <!-- ./wrapper -->
 
-    <audio id="themeSong" autoplay loop>
-      <source src="https://jumpshare.com/v/fd3HZupLphFHwIFlWwBj" type="audio/mpeg">
-      Your browser does not support the audio element.
-  </audio>
-
-  <script>
-      var themeSong = document.getElementById('themeSong');
-      themeSong.volume = 0.5;
-
-      themeSong.addEventListener('canplaythrough', function() {
-          themeSong.play().catch(error => {
-              console.log('Autoplay prevented:', error);
-          });
-      });
-
-     
-      document.addEventListener('click', function() {
-          if (themeSong.paused) {
-              themeSong.play();
-          }
-      });
-  </script>
+    
 
     <!-- REQUIRED SCRIPTS -->
 
