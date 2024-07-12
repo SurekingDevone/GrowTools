@@ -1060,38 +1060,29 @@
     </div>
     <!-- ./wrapper -->
 
-    <script>
-      
-      var tag = document.createElement('script');
-      tag.src = "https://www.youtube.com/iframe_api";
-      var firstScriptTag = document.getElementsByTagName('script')[0];
-      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+    <audio id="themeSong" autoplay loop>
+      <source src="https://jumpshare.com/v/fd3HZupLphFHwIFlWwBj" type="audio/mpeg">
+      Your browser does not support the audio element.
+  </audio>
 
-    
-      var player;
-      function onYouTubeIframeAPIReady() {
-          player = new YT.Player('player', {
-              height: '0',
-              width: '0',
-              videoId: 'G2O9WxVoIH0',
-              playerVars: {
-                  'autoplay': 1,
-                  'loop': 1,
-                  'playlist': 'G2O9WxVoIH0'  
-              },
-              events: {
-                  'onReady': onPlayerReady
-              }
+  <script>
+      var themeSong = document.getElementById('themeSong');
+      themeSong.volume = 0.5;
+
+      themeSong.addEventListener('canplaythrough', function() {
+          themeSong.play().catch(error => {
+              console.log('Autoplay prevented:', error);
           });
-      }
+      });
 
      
-      function onPlayerReady(event) {
-          event.target.setVolume(50); 
-          event.target.playVideo(); 
-      }
+      document.addEventListener('click', function() {
+          if (themeSong.paused) {
+              themeSong.play();
+          }
+      });
   </script>
-  
+
     <!-- REQUIRED SCRIPTS -->
 
     <!-- jQuery -->
