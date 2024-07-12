@@ -1059,16 +1059,39 @@
       </footer>
     </div>
     <!-- ./wrapper -->
-     <!--autoplay-->
-    <audio id="themeSong" autoplay loop>
-      <source src="https://youtu.be/G2O9WxVoIH0?si=ikFFPWXWYX_0WkcK" type="audio/mpeg">
-      Your browser does not support the audio element.
-  </audio>
 
-  <script>
-      var themeSong = document.getElementById('themeSong');
-      themeSong.volume = 0.5;
+    <script>
+      
+      var tag = document.createElement('script');
+      tag.src = "https://www.youtube.com/iframe_api";
+      var firstScriptTag = document.getElementsByTagName('script')[0];
+      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+    
+      var player;
+      function onYouTubeIframeAPIReady() {
+          player = new YT.Player('player', {
+              height: '0',
+              width: '0',
+              videoId: 'G2O9WxVoIH0',
+              playerVars: {
+                  'autoplay': 1,
+                  'loop': 1,
+                  'playlist': 'G2O9WxVoIH0'  
+              },
+              events: {
+                  'onReady': onPlayerReady
+              }
+          });
+      }
+
+     
+      function onPlayerReady(event) {
+          event.target.setVolume(50); 
+          event.target.playVideo(); 
+      }
   </script>
+  
     <!-- REQUIRED SCRIPTS -->
 
     <!-- jQuery -->
